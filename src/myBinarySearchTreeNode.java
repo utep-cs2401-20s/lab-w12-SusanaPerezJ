@@ -15,7 +15,7 @@ class myBinarySearchTreeNode{
     /// by inserting elements into the tree in the order they are given in A.
     myBinarySearchTreeNode tree = new myBinarySearchTreeNode(A[0]);
     for(int i = 0; i < A.length; i++){
-      tree.insert(A[i]);
+      this.insert(A[i]);
     }
 
   }
@@ -59,14 +59,14 @@ class myBinarySearchTreeNode{
   public int height(){
      // This method recursively calculates the height of the entire (sub)tree.
      // This method will take O(n) time
-    int leftH = 1;
-    int rightH = 1;
+    int leftH = 0;
+    int rightH = 0;
     int treeH = 0;
     if(left != null){
-        leftH =  1 + left.height();
+        leftH += left.height();
     }
     if(right != null){
-       rightH = 1 + right.height();
+       rightH += right.height();
     }
     if(leftH > rightH){
       treeH = leftH;
