@@ -13,8 +13,8 @@ class myBinarySearchTreeNode{
   myBinarySearchTreeNode(int[] A){
     // creates a new Binary Search Tree rooted at the first value in the array
     /// by inserting elements into the tree in the order they are given in A.
-    myBinarySearchTreeNode tree = new myBinarySearchTreeNode(A[0]);
-    for(int i = 0; i < A.length; i++){
+    myValue = A[0]; //setting the first element in the array as the root of the tree
+    for(int i = 1; i < A.length; i++){
       this.insert(A[i]);
     }
 
@@ -31,17 +31,17 @@ class myBinarySearchTreeNode{
     //recursive
     if(inValue > myValue){
       if(right == null){
-        right = new myBinarySearchTreeNode(inValue);
+        right = new myBinarySearchTreeNode(inValue); //create a right node
       }else{
         right.insert(inValue);
       }
     }else if(inValue < myValue){
       if(left == null){
-        left = new myBinarySearchTreeNode(inValue);
+        left = new myBinarySearchTreeNode(inValue); //create a left node
       }else{
         left.insert(inValue);
       }
-    }else{
+    }else{ //same value (already in the array)
       System.out.println("Value already present in tree");
     }
   }
@@ -49,12 +49,12 @@ class myBinarySearchTreeNode{
     // This method recursively calculates the number of nodes in the (sub)tree.
     int sum = 0;
     if(left != null){
-      sum+= left.size();
+      sum+= left.size();//recursive call
     }
     if(right != null){
-      sum+= right.size();
+      sum+= right.size(); //recursive call
     }
-    return sum + 1;
+    return sum + 1; //base case
   }
   public int height(){
      // This method recursively calculates the height of the entire (sub)tree.
@@ -68,12 +68,12 @@ class myBinarySearchTreeNode{
     if(right != null){
        rightH += right.height();
     }
-    if(leftH > rightH){
+    if(leftH > rightH){ //checking which value is larger
       treeH = leftH;
     }else{
       treeH = rightH;
     }
-      return treeH + 1;
+      return treeH + 1; //return the largest height + 1
   }
   
   public int depth(int search){
